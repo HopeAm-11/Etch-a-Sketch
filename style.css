@@ -1,3 +1,11 @@
+
+:root{
+  --col: repeat(16,1fr);
+   --row: 1;
+
+}
+
+
 *{
     margin:0;
     padding: 0;
@@ -13,32 +21,24 @@
   }
 
   
-  #container{
-    display: grid;
-    grid-template-columns: repeat(100,1fr);
-    grid-template-rows:repeat(100,1fr) ;
-    border:1px solid black;
-    width: 700px;
-    height: 700px;
-    
-  }
+ 
+
   
-  .div-squares{
-    border:1px solid red;
-    /*width:20px;
-    height: 20px;*/
+.div-squares{
+    border: 1px solid gray;
+
   }
 
   
-    /*
+    
   #container{
     display: grid;
-    grid-template-columns: repeat(16,1fr);
-    grid-template-rows:repeat(16,1fr) ;
+    grid-template-columns:var(--col);
+    grid-template-rows:var(--row);
     grid-auto-flow: dense;
     border:1px solid black;
     width: 700px;
     height: 700px;
     
   }
-  */
+  
