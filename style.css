@@ -1,10 +1,8 @@
 
 :root{
-  --col: repeat(16,1fr);
-   --row: 1;
+  --columns-row: 2;
 
 }
-
 
 *{
     margin:0;
@@ -15,30 +13,35 @@
   body{
     display: grid;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     border:1px solid black;
       height: 100vh;
+      background-color:#ccc5b9;
   }
 
-  
- 
-
-  
-.div-squares{
-    border: 1px solid gray;
-
-  }
-
-  
-    
   #container{
     display: grid;
-    grid-template-columns:var(--col);
-    grid-template-rows:var(--row);
-    grid-auto-flow: dense;
-    border:1px solid black;
+    grid-template-columns: repeat(var(--columns-row), 1fr);
+    grid-template-rows: repeat(var(--columns-row), 1fr);
+    border:1px solid white;
     width: 700px;
     height: 700px;
+    background-color: white;
     
   }
-  
+  #container > .div-squares{
+
+    border:1px solid rgb(126, 126, 126);
+  }
+
+  header{
+    color:black;
+    border:1px solid red;
+  }
+
+  button{
+    padding:3px;
+    width:100px;
+    text-transform: capitalize;
+  }

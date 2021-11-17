@@ -1,72 +1,50 @@
 let container = document.getElementById("container");
-
+let i = 0;
+let numberOfRows = 16;
+let total = numberOfRows * numberOfRows;
 
 // create 16x 16 grid 
-
-for (let divNum = 0; divNum < 256; ++divNum) {
-  let button = document.getElementById("btn")
-  button.addEventListener("click", () => divSquares.style.backgroundColor = "transparent");  
-  let divSquares = document.createElement('div');
-  divSquares.classList = 'div-squares'; // added class 
-  container.appendChild(divSquares);
-  divSquares.textContent = "";
-   divSquares.addEventListener("mouseover", () => divSquares.style.backgroundColor = "black");
+function grid() {
+  for (i = 0; i < 256; ++i) {
+    numberOfRows = 16;
+    let divSquares = document.createElement('div');
+    divSquares.classList = 'div-squares'; // added class 
+    container.appendChild(divSquares);
+    divSquares.textContent = "";
+    document.documentElement.style.setProperty("--columns-row", numberOfRows);
+    divSquares.addEventListener("mouseover", () => divSquares.style.backgroundColor = "black");
   }
+}
 
+grid();
 
+function game() {
 
-//create a grid
+  container = document.getElementById("container");
+  numberOfRows = prompt("How many rows do you want?");
+  container.textContent = '';
 
-// hover effect changing color
+  total = numberOfRows * numberOfRows;
+  document.documentElement.style.setProperty("--columns-row", numberOfRows);
 
-// reset button and get a number 
-
-function game(e) {
-
-   e = prompt("number?");
-  let i = 0;
-  let total = e * e;
-  if (e <=0 || e<=100) {
-    for (i = 0; i < total; i++) {
-      let button = document.getElementById("btn")
-      button.addEventListener("click", () => divSquares.style.backgroundColor = "transparent");
-      let divSquares = document.createElement('div');
-      divSquares.classList = 'div-squares'; // added class 
-      container.appendChild(divSquares);
+  if (numberOfRows >= 0 && numberOfRows <= 100) {
+    for (let i = 0; i < total; i++) {
+      container = document.getElementById("container");
+      var divSquares = document.createElement('div');
       divSquares.textContent = "";
-      divSquares.addEventListener("mouseover", () => divSquares.style.backgroundColor = "green");
-    };
-
-
-
-}else{
-  console.log("sad");
+      divSquares.classList = 'div-squares';
+      document.getElementById("container").appendChild(divSquares);
+      divSquares.addEventListener("mouseover", function () {
+        this.style.backgroundColor = "black"
+      });
+    }
+  } else if (numberOfRows > 100 || numberOfRows < 0) {
+    window.alert("enter a number please btween 1 and 100");
+    game();
+  } else {
+    console.log("sad")
+  }
 }
-}
-let button = document.getElementById("btn")
-button.addEventListener("click",()=> game());
 
-
-//test();
-
-//var value=50;  
-//function a(){  
-//alert(this.value);//accessing global variable   
-//}  
-
-
-
-//for (divNum = 0; divNum < 400; ++divNum) {
-//  button.addEventListener("click", () => divSquares.style.backgroundColor = "transparent");
-//  let divSquares = document.createElement('div');
-// divSquares.classList = 'div-squares'; // added class 
-//  container.appendChild(divSquares);
-// divSquares.textContent = "";
-//  divSquares.addEventListener("mouseover", () => divSquares.style.backgroundColor = "green");
-//}
-
-
-
-//    divSquares.addEventListener("mouseout",()=> divSquares.style.backgroundColor="transparent"); 
-
-// 16 min and 100 max 
+let btn = document.getElementById("btn")
+btn.addEventListener("click", game);
