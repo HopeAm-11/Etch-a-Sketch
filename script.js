@@ -79,7 +79,7 @@ function game() {
             })
         }
     } else if (numberOfRows > 100 || numberOfRows < 1) {
-        window.alert("Please enter a number please btween 1 and 100");
+        window.alert("Please enter a number between 1 and 100");
         game();
     } else if (numberOfRows !== parseInt(numberOfRows).toString()) {
         alert("Please enter a number");
